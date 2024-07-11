@@ -1,0 +1,59 @@
+type DepositTransferred @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  oldOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type IncentiveCreated @entity(immutable: true) {
+  id: Bytes!
+  rewardToken: Bytes! # address
+  pool: Bytes! # address
+  startTime: BigInt! # uint256
+  endTime: BigInt! # uint256
+  refundee: Bytes! # address
+  reward: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type IncentiveEnded @entity(immutable: true) {
+  id: Bytes!
+  incentiveId: Bytes! # bytes32
+  refund: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RewardClaimed @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  reward: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenStaked @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  incentiveId: Bytes! # bytes32
+  liquidity: BigInt! # uint128
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenUnstaked @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  incentiveId: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
