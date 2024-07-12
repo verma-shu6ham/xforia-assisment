@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: demo
+    network: sepolia
+    source:
+      address: "0xe22c1b7d661ea688641Ec6fA05AAddBff8381490"
+      abi: demo
+      startBlock: 6294309
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NumDec
+        - NumInc
+      abis:
+        - name: demo
+          file: ./abis/demo.json
+      eventHandlers:
+        - event: NumDec(address,uint256)
+          handler: handleNumDec
+        - event: NumInc(address,uint256)
+          handler: handleNumInc
+      file: ./src/demo.ts

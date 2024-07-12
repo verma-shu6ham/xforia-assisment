@@ -1,0 +1,17 @@
+type NumDec @entity(immutable: true) {
+  id: Bytes!
+  param0: Bytes! # address
+  param1: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NumInc @entity(immutable: true) {
+  id: Bytes!
+  param0: Bytes! # address
+  param1: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
